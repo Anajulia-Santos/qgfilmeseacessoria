@@ -1,0 +1,307 @@
+:root {
+    --primary-color: #f8a203;
+    --secondary-color: #25606f;
+    --background-color: #373435;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+.section {
+    min-height: 100vh;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.bg-video {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+.bg-video .content,
+.bg-photo .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0 15px;
+}
+
+.bg-video .content {
+    color: #077c96;
+}
+
+.bg-photo {
+    background-image: url('path/to/your/photo.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 20px 0;
+}
+
+.social-icon img {
+    width: 40px;
+    /* Tamanho fixo dos ícones, ajuste conforme necessário */
+    height: 40px;
+    /* Tamanho fixo dos ícones, ajuste conforme necessário */
+    margin: 0 10px;
+    /* Espaçamento entre os ícones */
+    vertical-align: middle;
+    /* Alinha verticalmente com o texto, se necessário */
+}
+
+.social-icon {
+    text-decoration: none;
+    /* Remove o sublinhado dos links dos ícones */
+}
+
+.social-icon img:hover {
+    opacity: 0.8;
+    /* Adiciona um efeito visual ao passar o mouse sobre os ícones */
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.typing {
+    display: inline;
+    border-right: 2px solid #fff;
+    overflow: hidden;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: #ffffff;
+    }
+}
+
+.bg-light {
+    background-color: #ffffff;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-size: 20px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.scroll-to-top img {
+    width: 24px;
+    height: 24px;
+}
+
+.scroll-to-top:hover {
+    background-color: #e59400;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .card-img-top {
+        height: auto;
+        object-fit: contain;
+    }
+
+    .card-body {
+        height: auto;
+    }
+
+    .scroll-to-top {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    
+}
+.btn-primary:hover {
+    background-color: #f8ce7f;
+    --bs-btn-hover-border-color: none;
+}
+
+
+.service-card {
+    background-color: #fdfdfd;
+    min-height: 300px;
+}
+
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-text {
+    flex-grow: 9;
+}
+
+/* Section Serviços */
+#services {
+    background-color: #f8f9fc;
+    padding: 40px 0;
+}
+
+#services .container {
+    padding: 20px;
+}
+
+#services #text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#services #text-section h1,
+#services #text-section p {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+#services #text-section h2 {
+    text-align: left !important;
+    font-size: 27px
+}
+
+#services #contact-button {
+    background-color: #e59400;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    width: 200px;
+}
+
+#services #contact-button:hover {
+    background-color: #ffbb3d;
+}
+
+#services #cards-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+#services #cards-section .card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    /* Largura fixa */
+    height: 300px;
+    /* Altura fixa */
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#services #cards-section .card:nth-child(odd) {
+    margin-top: 60px;
+    /* Ajuste a altura do zigue-zague */
+}
+
+#services #cards-section .card.primary {
+    background-color: #fdbf4a;
+    color: white;
+}
+
+#services #cards-section .card img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#services #col-md-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
