@@ -1,192 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="./images/logop.png">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="QG - Inovação em Acessibilidade oferece soluções audiovisuais inovadoras para promover inclusão e acessibilidade.">
   <title>QG - Inovação em Acessibilidade</title>
+  <link rel="icon" type="image/png" href="./images/logop.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-      background-color: #373435;
-    }
-
-    .section {
-      min-height: 100vh;
-      padding: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .bg-video {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .bg-video video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: translate(-50%, -50%);
-    }
-
-    .bg-video .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #01abd1;
-      text-align: center;
-      padding: 0 15px;
-    }
-
-    .bg-photo {
-      background-image: url('path/to/your/photo.jpg');
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      color: white;
-    }
-
-    .bg-photo .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      padding: 0 15px;
-    }
-
-    footer {
-      background-color: #25606f;
-      color: white;
-      padding: 20px 0;
-    }
-
-    footer a {
-      color: #ffffff;
-      text-decoration: none;
-    }
-
-    footer .logo {
-      height: 50px;
-      margin-right: 10px;
-    }
-
-    .navbar-brand img {
-      height: 40px;
-      margin-right: 10px;
-    }
-
-    .typing {
-      display: inline;
-      border-right: 2px solid #fff;
-      overflow: hidden;
-      animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-
-      to {
-        width: 100%;
-      }
-    }
-
-    @keyframes blink-caret {
-
-      from,
-      to {
-        border-color: transparent;
-      }
-
-      50% {
-        border-color: #fff;
-      }
-    }
-
-    .bg-light {
-      background-color: #93ca31;
-    }
-
-    .btn-primary {
-      background-color: #f8a203;
-      border-color: #f8a203;
-    }
-
-    .scroll-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #f8a203;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      text-decoration: none;
-      font-size: 20px;
-      transition: opacity 0.3s ease;
-      opacity: 0;
-    }
-
-    .scroll-to-top img {
-      width: 24px;
-      height: 24px;
-    }
-
-    .scroll-to-top:hover {
-      background-color: #e59400;
-    }
-
-    .scroll-to-top.show {
-      opacity: 1;
-    }
-
-    /* Para melhorar a visualização dos cards em dispositivos móveis */
-    @media (max-width: 768px) {
-      .card-img-top {
-        height: auto;
-        object-fit: contain;
-      }
-
-      .card-body {
-        height: auto;
-      }
-
-      .scroll-to-top {
-        width: 40px;
-        height: 40px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -228,7 +52,7 @@
       <source src="../path-to-your-video.mp4" type="video/mp4">
     </video>
     <div class="content">
-      <h1 class="typing">Bem-vindo à QG Filmes - Inovação em Acessibilidade</h1>
+      <h1 id="typing-text" class="typing"></h1>
       <h4>Produzindo histórias que encantam</h4>
     </div>
   </section>
@@ -236,10 +60,23 @@
   <!-- Sobre Nós Section -->
   <section id="about" class="section bg-light">
     <div class="container">
-      <h2 class="text-center">Sobre Nós</h2>
-      <p class="text-center">Informações detalhadas sobre a QG - Inovação em Acessibilidade...</p>
+      <h2 class="text-center">Sobre a QG - Inovação em Acessibilidade</h2>
+      <p class="text-center">A QG é uma empresa especializada em soluções inovadoras para tornar o mundo mais acessível
+        a todos. Nossa missão é...</p>
+      <div class="row" style="display: flex; justify-content: center;">
+        <div class="col-md-6" style="width:25%;">
+          <img src="./images/logop.png" alt="Equipe QG" class="img-fluid">
+        </div>
+        <div class="col-md-6" style="display: flex; width: 50%; flex-direction: column;justify-content: center;
+            align-items: flex-start;">
+          <p>Nossa equipe é composta por profissionais apaixonados por cultura, inclusão e acessibilidade. Juntos,
+            desenvolvemos soluções que...</p>
+          <a href="./about.html" class="btn btn-primary">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
     </div>
   </section>
+
 
   <!-- Portfólio Section -->
   <section id="portfolio" class="section bg-light">
@@ -249,11 +86,11 @@
         <!-- Projeto 1 -->
         <div class="col-md-3 mb-4">
           <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-1.5s"
-            style="background-color: #f8f9fa;"> <!-- Altere a cor de fundo aqui -->
+            style="background-color: #f8f9fa;">
             <img src="./images/curtanalinha.jpg" class="card-img-top" alt="Imagem do Projeto 1"
               style="height: 200px; object-fit: cover;">
             <div class="card-body text-center">
-              <h5 class="card-title"> Curta na Linha</h5>
+              <h5 class="card-title">Curta na Linha</h5>
               <p class="card-text">1ª Mostra de Cinema Independente de Prudente exibiu 12 filmes locais no Galpão da
                 Lua, promovendo a produção audiovisual regional e o cinema independente, com sessões gratuitas e ao ar
                 livre.</p>
@@ -265,44 +102,41 @@
         <!-- Projeto 2 -->
         <div class="col-md-3 mb-4">
           <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-2s"
-            style="background-color: #f8f9fa;"> <!-- Altere a cor de fundo aqui -->
-            <img src="path/to/image2.jpg" class="card-img-top" alt="Imagem do Projeto 2"
+            style="background-color: #f8f9fa;">
+            <img src="./images/video.jpg" class="card-img-top" alt="Imagem do Projeto 2"
               style="height: 200px; object-fit: cover;">
             <div class="card-body text-center">
               <h5 class="card-title">Projeto 2</h5>
-              <p class="card-text">Descrição do projeto 2. Dê uma visão geral sobre as contribuições e o
-                impacto deste projeto.</p>
-              <a href="#contact" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto 2">Saiba
+              <p class="card-text">Descrição do Projeto 2.</p>
+              <a href="./projeto2.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto 2">Saiba
                 Mais</a>
             </div>
           </div>
         </div>
         <!-- Projeto 3 -->
         <div class="col-md-3 mb-4">
-          <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-3s"
-            style="background-color: #f8f9fa;"> <!-- Altere a cor de fundo aqui -->
-            <img src="path/to/image3.jpg" class="card-img-top" alt="Imagem do Projeto 3"
+          <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-2.5s"
+            style="background-color: #f8f9fa;">
+            <img src="./images/projeto3.jpg" class="card-img-top" alt="Imagem do Projeto 3"
               style="height: 200px; object-fit: cover;">
             <div class="card-body text-center">
               <h5 class="card-title">Projeto 3</h5>
-              <p class="card-text">Descrição do projeto 3. Destaque os resultados e a importância deste
-                projeto para o portfólio.</p>
-              <a href="#contact" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto 3">Saiba
+              <p class="card-text">Descrição do Projeto 3.</p>
+              <a href="./projeto3.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto 3">Saiba
                 Mais</a>
             </div>
           </div>
         </div>
         <!-- Projeto 4 -->
         <div class="col-md-3 mb-4">
-          <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-4s"
-            style="background-color: #f8f9fa;"> <!-- Altere a cor de fundo aqui -->
-            <img src="path/to/image4.jpg" class="card-img-top" alt="Imagem do Projeto 4"
+          <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-3s"
+            style="background-color: #f8f9fa;">
+            <img src="./images/projeto4.jpg" class="card-img-top" alt="Imagem do Projeto 4"
               style="height: 200px; object-fit: cover;">
             <div class="card-body text-center">
               <h5 class="card-title">Projeto 4</h5>
-              <p class="card-text">Descrição do projeto 4. Enfatize a inovação e os resultados obtidos com
-                este projeto.</p>
-              <a href="#contact" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto 4">Saiba
+              <p class="card-text">Descrição do Projeto 4.</p>
+              <a href="./projeto4.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto 4">Saiba
                 Mais</a>
             </div>
           </div>
@@ -311,69 +145,58 @@
     </div>
   </section>
 
+
   <!-- Serviços Section -->
   <section id="services" class="section bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5">Serviços</h2>
+    <div class="container" id="services-container">
       <div class="row">
-        <!-- Card 1 -->
-        <div class="col-md-3 mb-4">
-          <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-1s"
-            style="height: 100%;">
-            <img src="path/to/image1.jpg" class="card-img-top" alt="Produção Audiovisual"
-              style="height: 200px; object-fit: cover;">
-            <div class="card-body text-center" style="height: 200px;">
-              <h4 class="card-title">Produção Audiovisual</h4>
-              <p class="card-text">Oferecemos serviços de produção para filmes, curtas, documentários e
-                muito mais.</p>
-            </div>
-          </div>
+        <div class="col-md-6 text-section" id="text-section">
+          <h2 id="services-title">Serviços</h2>
+          <h1 id="help-title" style="color: #f8a203;">Como podemos te ajudar hoje?</h1>
+          <p id="text-description">Se você está buscando uma consultoria que possa cumprir prazos e oferecer suporte
+            especializado para seus projetos culturais e de acessibilidade, você encontrou!</p>
+          <a href="https://wa.me/18997346707?text=Olá!%20Estou%20interessado(a)%20nos%20serviços%20da%20QG%20-%20Inovação%20em%20Acessibilidade.%20Por%20favor,%20entre%20em%20contato%20para%20que%20possamos%20conversar%20mais%20sobre%20como%20posso%20aproveitar.%20Obrigado!"
+            class="button btn" id="contact-button" target="_blank" rel="noopener noreferrer">
+            Solicitar Contato
+          </a>
+
         </div>
-        <!-- Card 2 -->
-        <div class="col-md-3 mb-4">
-          <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-2s"
-            style="height: 100%;">
-            <img src="path/to/image2.jpg" class="card-img-top" alt="Edição e Pós-Produção"
-              style="height: 200px; object-fit: cover;">
-            <div class="card-body text-center" style="height: 200px;">
-              <h4 class="card-title">Edição e Pós-Produção</h4>
-              <p class="card-text">Contamos com uma equipe de especialistas para cuidar da edição e
-                pós-produção dos
-                seus projetos audiovisuais.</p>
+        <div class="col-md-6" id="cards-container">
+          <div class="cards-section" id="cards-section">
+            <div class="card primary" id="card-production">
+              <img src="consultoria-icon.png" alt="Produção Audiovisual" id="card-production-img">
+              <h4 id="card-production-title">Produção Audiovisual</h4>
+              <p class="card-text" id="card-production-text">Oferecemos serviços de produção para filmes, curtas,
+                documentários e muito mais.</p>
             </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="col-md-3 mb-4">
-          <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-3s"
-            style="height: 100%;">
-            <img src="path/to/image3.jpg" class="card-img-top" alt="Workshops e Oficinas"
-              style="height: 200px; object-fit: cover;">
-            <div class="card-body text-center" style="height: 200px;">
-              <h4 class="card-title">Workshops e Oficinas</h4>
-              <p class="card-text">Promovemos workshops e oficinas para capacitação na área de
-                audiovisual, voltados
-                para iniciantes e profissionais.</p>
+            <div class="card" id="card-editing">
+              <img src="empresa-pequeno-porte-icon.png" alt="Empresas de Pequeno Porte" id="card-editing-img">
+              <h4 class="card-title" id="card-editing-title">Edição e Pós-Produção</h4>
+              <p class="card-text" id="card-editing-text">Contamos com uma equipe de especialistas para cuidar da edição
+                e pós-produção dos seus projetos audiovisuais.</p>
             </div>
-          </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="col-md-3 mb-4">
-          <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-4s"
-            style="height: 100%;">
-            <img src="path/to/image4.jpg" class="card-img-top" alt="Produção e Assessoria Cultural"
-              style="height: 200px; object-fit: cover;">
-            <div class="card-body text-center" style="height: 200px;">
-              <h4 class="card-title">Produção e Assessoria Cultural</h4>
-              <p class="card-text">Oferecemos serviços completos de produção e assessoria para projetos
-                culturais,
-                ajudando a desenvolver e a promover iniciativas culturais de sucesso.</p>
+            <div class="card" id="card-workshops">
+              <img src="autonomos-mei-icon.png" alt="Profissionais Autônomos e MEI" id="card-workshops-img">
+              <h4 class="card-title" id="card-workshops-title">Workshops e Oficinas</h4>
+              <p class="card-text" id="card-workshops-text">Promovemos workshops e oficinas para capacitação na área de
+                audiovisual, voltados para iniciantes e profissionais.</p>
+            </div>
+            <div class="card" id="card-cultural">
+              <img src="micro-empresas-icon.png" alt="Micro Empresas e Novos Negócios" id="card-cultural-img">
+              <h4 class="card-title" id="card-cultural-title">Produção e Assessoria Cultural</h4>
+              <p class="card-text" id="card-cultural-text">Oferecemos serviços completos de produção e assessoria para
+                projetos culturais, ajudando a desenvolver e a promover iniciativas culturais de sucesso.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+
+
+
+
   <!-- Inscrição Section -->
   <section id="signup" class="section bg-photo">
     <div class="content">
@@ -382,82 +205,95 @@
       <a href="./pagina.html" class="btn btn-primary">Inscreva-se</a>
     </div>
   </section>
-  <!-- Botão para subir ao topo -->
-  <a href="#" class="scroll-to-top" aria-label="Voltar ao topo">
-    <img src="./icons/seta.png" alt="Ícone de subir ao topo">
-  </a>
 
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
-  </div>
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center">
-    <div class="container">
-      <div class="d-flex justify-content-center mb-3">
-        <a href="https://facebook.com" class="mx-2" aria-label="Facebook">
-          <img src="../qgfilmeseacessoria/icons/face.png" alt="Facebook" class="logo"
-            style="width: 40px; height: auto;">
-        </a>
-        <a href="https://instagram.com" class="mx-2" aria-label="Instagram">
-          <img src="../qgfilmeseacessoria/icons/insta.png" alt="Instagram" class="logo"
-            style="width: 40px; height: auto;">
-        </a>
-      </div>
+  <footer>
+    <div class="container text-center">
       <p>&copy; 2024 QG - Inovação em Acessibilidade. Todos os direitos reservados.</p>
+      <a href="https://www.instagram.com/qgfilmespp?igsh=MmVkYnBpdno2OGg3" target="_blank" rel="noopener noreferrer"
+        class="social-icon">
+        <img src="./icons/insta.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/QGfilmesPP?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer"
+        class="social-icon">
+        <img src="./icons/face.png" alt="Facebook">
+      </a>
     </div>
   </footer>
+  <a href="#" class="scroll-to-top" aria-label="Voltar ao topo">
+    <img src="./icons/seta.png" alt="Ícone de voltar ao topo">
+  </a>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-8AqjQ9erIgl8eUv8L7HcH95DkR1NtMj5I8pNwCINxLJ2bNU2m8O9wF+Mr/k1F5Pt" crossorigin="anonymous">
-    </script>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz4fnFO9gO6ghfqeLBf48Oh9lC4zXxVYqF9BdY5T5oxsBvLEz7L7O8ZK1G"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-5H6g+NfTo6oxpSMmDhHTDRhRMtHj1tt6W8Npx16wF1D+o6pPj9m02oZhz5/9c6v9"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
-  <script>
-    // Animar as seções quando entram na viewport
-    document.addEventListener('DOMContentLoaded', function () {
-      var sections = document.querySelectorAll('.section');
-      var options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      };
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.section');
+      const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+      // Configura o IntersectionObserver
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
           }
         });
-      }, options);
+      }, { threshold: 0.1 });
 
-      sections.forEach(function (section) {
-        observer.observe(section);
+      // Observa cada seção
+      sections.forEach(section => observer.observe(section));
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollToTopBtn.classList.add('show');
+        } else {
+          scrollToTopBtn.classList.remove('show');
+        }
       });
-    });
 
-    // Mostrar/ocultar o botão de subir ao topo
-    document.addEventListener('scroll', function () {
-      var scrollToTopBtn = document.querySelector('.scroll-to-top');
-      if (window.scrollY > 200) { // Ajuste o valor conforme necessário
-        scrollToTopBtn.classList.add('show');
-      } else {
-        scrollToTopBtn.classList.remove('show');
+      // Rolagem suave e recarregamento da página
+      scrollToTopBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        // Rolagem suave para o topo
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+
+        // Recarregar a página após um pequeno atraso
+        setTimeout(() => {
+          window.location.reload();
+        }, 700); // ms de atraso, ajuste conforme necessário
+      });
+
+      // Efeito de digitação
+      const typingText = document.getElementById('typing-text');
+      const text = 'Bem-vindo à QG - Inovação em Acessibilidade!';
+      let index = 0;
+
+      function type() {
+        if (index < text.length) {
+          typingText.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, 100);
+        }
       }
+
+      type();
     });
 
-    // Rolagem suave para o topo
-    document.querySelector('.scroll-to-top').addEventListener('click', function (e) {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
   </script>
+
 </body>
 
 </html>
